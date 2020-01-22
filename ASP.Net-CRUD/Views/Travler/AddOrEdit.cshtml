@@ -1,0 +1,37 @@
+﻿@model ASP.Net_CRUD.Models.Travler
+@{
+    Layout = null;
+}
+
+@using (Html.BeginForm("AddOrEdit", "Travler", FormMethod.Post, new {onsubmit = "return SubmitForm(this)" }))
+{
+    @Html.HiddenFor(model => model.TravlerID)
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Age, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Departure, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Departure, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Departure)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Destination, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Destination, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.Destination)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.FlightClass, new { @class = "control-label" })
+        @Html.EditorFor(model => model.FlightClass, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Submit" class="btn btn-primary" />
+        <input type="reset" value="Reset" class="btn btn-warning" />
+    </div>
+}
